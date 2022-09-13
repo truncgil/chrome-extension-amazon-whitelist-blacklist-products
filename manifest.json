@@ -1,0 +1,34 @@
+{
+    "manifest_version": 3,
+    "name": "Whitelist Blacklist",
+    "description": "Amazon Whitelist Blacklist App",
+    "version": "0.0.1",
+    "icons": {
+        "512" : "logo/icon.png"
+    },
+    "action": {
+        "default_title": "Whitelist Blacklist"
+    },
+    "permissions": [],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "background": {
+        "service_worker": "service-worker.js"
+    },
+    "content_scripts": [{
+        "js": [
+            "lib/jquery.js",
+            "foreground.js"
+        ],
+        "css": ["fix.css"],
+        "matches": ["*://*/*"]
+    }],
+    "web_accessible_resources": [{
+        "resources": [
+            "whitelist.txt",
+            "blacklist.txt"
+        ],
+        "matches": ["<all_urls>"]
+      }]
+}
